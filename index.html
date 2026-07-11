@@ -7,6 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17442167129"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17442167129');
+</script>
 <style>
   :root{
     --ink:#1B1533;
@@ -464,8 +473,10 @@
       status.className = 'ok';
       status.textContent = "Thanks — we've received your enquiry and will call you shortly.";
       form.reset();
-      // Fire Google Ads conversion tracking here, e.g.:
-      // gtag('event', 'conversion', {'send_to': 'AW-XXXXXXX/XXXXXXXX'});
+      // Google Ads conversion tracking — waiting on the conversion LABEL
+      // (the part after the "/" in send_to). Once added, this fires on
+      // every successful form submit.
+      // gtag('event', 'conversion', {'send_to': 'AW-17442167129/REPLACE_WITH_LABEL'});
     })
     .catch(() => {
       status.className = 'err';
