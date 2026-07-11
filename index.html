@@ -473,10 +473,10 @@
       status.className = 'ok';
       status.textContent = "Thanks — we've received your enquiry and will call you shortly.";
       form.reset();
-      // Google Ads conversion tracking — waiting on the conversion LABEL
-      // (the part after the "/" in send_to). Once added, this fires on
-      // every successful form submit.
-      // gtag('event', 'conversion', {'send_to': 'AW-17442167129/REPLACE_WITH_LABEL'});
+      // Google Ads conversion tracking — fires on every successful form submit
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-17442167129/GjcYCPjmzc4cENmyif1A'});
+      }
     })
     .catch(() => {
       status.className = 'err';
