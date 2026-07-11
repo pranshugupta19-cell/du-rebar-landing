@@ -453,10 +453,14 @@
 
     fetch(SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(data)
     })
     .then(() => {
+      // Apps Script doesn't return CORS headers, so with mode:'no-cors' the
+      // response is opaque — reaching .then() means the request was sent
+      // successfully. We can't read a status back, so we treat this as success.
       status.className = 'ok';
       status.textContent = "Thanks — we've received your enquiry and will call you shortly.";
       form.reset();
